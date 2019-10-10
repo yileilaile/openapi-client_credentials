@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.instai.open.mapper.AccessTokenMapper">
+  <resultMap id="BaseResultMap" type="com.instai.open.model.AccessToken">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="access_token" jdbcType="VARCHAR" property="accessToken" />
+    <result column="client_id" jdbcType="VARCHAR" property="clientId" />
+    <result column="expires_in" jdbcType="BIGINT" property="expiresIn" />
+    <result column="grant_type" jdbcType="VARCHAR" property="grantType" />
+    <result column="scope" jdbcType="VARCHAR" property="scope" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.instai.open.model.AccessToken">
+    insert into t_base_auth20_access_token (id, access_token, client_id, 
+      expires_in, grant_type, scope, 
+      create_by, create_date)
+    values (#{id,jdbcType=INTEGER}, #{accessToken,jdbcType=VARCHAR}, #{clientId,jdbcType=VARCHAR}, 
+      #{expiresIn,jdbcType=BIGINT}, #{grantType,jdbcType=VARCHAR}, #{scope,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.instai.open.model.AccessToken">
+    insert into t_base_auth20_access_token
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="accessToken != null">
+        access_token,
+      </if>
+      <if test="clientId != null">
+        client_id,
+      </if>
+      <if test="expiresIn != null">
+        expires_in,
+      </if>
+      <if test="grantType != null">
+        grant_type,
+      </if>
+      <if test="scope != null">
+        scope,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="accessToken != null">
+        #{accessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="clientId != null">
+        #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="expiresIn != null">
+        #{expiresIn,jdbcType=BIGINT},
+      </if>
+      <if test="grantType != null">
+        #{grantType,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null">
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,29 @@
+server:
+  port: 7032
+spring:
+  application:
+    name: oauth-server
+  redis:
+    database: 0
+    host: ${redis.host}
+    password: ${redis.password}
+    port: ${redis.port}
+mapper:
+  mappers: com.instai.open.model.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+logging:
+  level.com.instai.open.oauth.mapper: debug
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: ${eureka.url}
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+security:
+  oauth2:
+    authorization:
+      check-token-access: true

@@ -1,0 +1,57 @@
+server:
+  port: 7031   # 端口号
+spring:
+  application:
+    name: zuul-server   # 网关服务名称
+  redis:
+    database: 0
+    host: ${redis.host}
+    password: ${redis.password}
+    port: ${redis.port}
+#网关路由配置
+zuul:
+  routes:
+    baseInfo:
+      path: /api/baseInfo/**
+      serviceId: baseinfo-server
+    oauth:
+      path: /auth/**
+      serviceId: oauth-server
+  semaphore:
+    max-semaphores: 2000
+
+  #  因为zuul是整合ribbon和hystrix的另一个客户端，所以我们需要自己导入spring-retry坐标，并且开启服务
+  retryable: true
+#整合oauth2 认证配置
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:7031/auth/oauth/token
+      user-authorization-uri: http://localhost:7031/auth/oauth/authorize
+      client-id: webapp
+    resource:
+      token-info-uri: http://localhost:7031/auth/oauth/check_token
+#服务注册配置
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5    # 获取注册列表的周期
+    service-url:
+      #    eureka注册中心地址
+      defaultZone: ${eureka.url}
+  instance:
+    prefer-ip-address: true   # 返回ip地址而不是hostname
+    ip-address: 127.0.0.1      # 本机地址
+ribbon:
+  ConnectTimeout: 250 # 连接超时时间（ms），默认值为250ms
+  ReadTimeout: 2000 # 通信超时时间（ms），默认值为2000ms
+  OkToRetryOnAllOperations: true # 是否对所有操作都进行重试
+  MaxAutoRetriesNextServer: 2 # 对同一服务不同实例重试次数（同一服务下集群个数的重试次数）
+  MaxAutoRetries: 2 # 对同一实例重试的次数（单个集群节点服务重试的次数）
+# 开启熔断机制，超过六秒即开启熔断机制，网关内的时间排序：zuul的通信时间 > hystrix熔断时间 > retry重试时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000

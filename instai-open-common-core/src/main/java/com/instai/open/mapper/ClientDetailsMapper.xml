@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.instai.open.mapper.ClientDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.instai.open.model.ClientDetails">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="school_code" jdbcType="VARCHAR" property="schoolCode" />
+    <result column="client_id" jdbcType="VARCHAR" property="clientId" />
+    <result column="client_name" jdbcType="VARCHAR" property="clientName" />
+    <result column="client_secret" jdbcType="VARCHAR" property="clientSecret" />
+    <result column="redirect_uri" jdbcType="VARCHAR" property="redirectUri" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="service_url" jdbcType="VARCHAR" property="serviceUrl" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="client_type" jdbcType="CHAR" property="clientType" />
+    <result column="create_by" jdbcType="INTEGER" property="createBy" />
+    <result column="modify_by" jdbcType="INTEGER" property="modifyBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.instai.open.model.ClientDetails">
+    insert into t_base_auth20_client_details (id, school_code, client_id, 
+      client_name, client_secret, redirect_uri, 
+      description, service_url, status, 
+      client_type, create_by, modify_by, 
+      create_date, modify_date)
+    values (#{id,jdbcType=INTEGER}, #{schoolCode,jdbcType=VARCHAR}, #{clientId,jdbcType=VARCHAR}, 
+      #{clientName,jdbcType=VARCHAR}, #{clientSecret,jdbcType=VARCHAR}, #{redirectUri,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{serviceUrl,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{clientType,jdbcType=CHAR}, #{createBy,jdbcType=INTEGER}, #{modifyBy,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{modifyDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.instai.open.model.ClientDetails">
+    insert into t_base_auth20_client_details
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="schoolCode != null">
+        school_code,
+      </if>
+      <if test="clientId != null">
+        client_id,
+      </if>
+      <if test="clientName != null">
+        client_name,
+      </if>
+      <if test="clientSecret != null">
+        client_secret,
+      </if>
+      <if test="redirectUri != null">
+        redirect_uri,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="serviceUrl != null">
+        service_url,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="clientType != null">
+        client_type,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="modifyBy != null">
+        modify_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="modifyDate != null">
+        modify_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="schoolCode != null">
+        #{schoolCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clientId != null">
+        #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="clientName != null">
+        #{clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="clientSecret != null">
+        #{clientSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="redirectUri != null">
+        #{redirectUri,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceUrl != null">
+        #{serviceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="clientType != null">
+        #{clientType,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="modifyBy != null">
+        #{modifyBy,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.instai.open.model.ClientDetails">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="school_code" jdbcType="VARCHAR" property="schoolCode" />
+    <result column="client_id" jdbcType="VARCHAR" property="clientId" />
+    <result column="client_name" jdbcType="VARCHAR" property="clientName" />
+    <result column="client_secret" jdbcType="VARCHAR" property="clientSecret" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="client_type" jdbcType="CHAR" property="clientType" />
+    <result column="secret_key" jdbcType="VARCHAR" property="secretKey" />
+    <result column="create_by" jdbcType="INTEGER" property="createBy" />
+    <result column="modify_by" jdbcType="INTEGER" property="modifyBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.instai.open.model.ClientDetailsWithBLOBs">
+    <result column="redirect_uri" jdbcType="LONGVARCHAR" property="redirectUri" />
+    <result column="description" jdbcType="LONGVARCHAR" property="description" />
+    <result column="service_url" jdbcType="LONGVARCHAR" property="serviceUrl" />
+    <result column="url_white_list" jdbcType="LONGVARCHAR" property="urlWhiteList" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    redirect_uri, description, service_url, url_white_list
+  </sql>
+  <insert id="insert" parameterType="com.instai.open.model.ClientDetailsWithBLOBs">
+    insert into t_base_auth20_client_details (id, school_code, client_id, 
+      client_name, client_secret, status, 
+      client_type, secret_key, create_by, 
+      modify_by, create_date, modify_date, 
+      redirect_uri, description, service_url, 
+      url_white_list)
+    values (#{id,jdbcType=INTEGER}, #{schoolCode,jdbcType=VARCHAR}, #{clientId,jdbcType=VARCHAR}, 
+      #{clientName,jdbcType=VARCHAR}, #{clientSecret,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{clientType,jdbcType=CHAR}, #{secretKey,jdbcType=VARCHAR}, #{createBy,jdbcType=INTEGER}, 
+      #{modifyBy,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, #{modifyDate,jdbcType=TIMESTAMP}, 
+      #{redirectUri,jdbcType=LONGVARCHAR}, #{description,jdbcType=LONGVARCHAR}, #{serviceUrl,jdbcType=LONGVARCHAR}, 
+      #{urlWhiteList,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.instai.open.model.ClientDetailsWithBLOBs">
+    insert into t_base_auth20_client_details
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="schoolCode != null">
+        school_code,
+      </if>
+      <if test="clientId != null">
+        client_id,
+      </if>
+      <if test="clientName != null">
+        client_name,
+      </if>
+      <if test="clientSecret != null">
+        client_secret,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="clientType != null">
+        client_type,
+      </if>
+      <if test="secretKey != null">
+        secret_key,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="modifyBy != null">
+        modify_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="modifyDate != null">
+        modify_date,
+      </if>
+      <if test="redirectUri != null">
+        redirect_uri,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="serviceUrl != null">
+        service_url,
+      </if>
+      <if test="urlWhiteList != null">
+        url_white_list,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="schoolCode != null">
+        #{schoolCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clientId != null">
+        #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="clientName != null">
+        #{clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="clientSecret != null">
+        #{clientSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="clientType != null">
+        #{clientType,jdbcType=CHAR},
+      </if>
+      <if test="secretKey != null">
+        #{secretKey,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="modifyBy != null">
+        #{modifyBy,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="redirectUri != null">
+        #{redirectUri,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="serviceUrl != null">
+        #{serviceUrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="urlWhiteList != null">
+        #{urlWhiteList,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

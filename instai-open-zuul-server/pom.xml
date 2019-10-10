@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>instai-open-zuul-server</artifactId>
+    <packaging>jar</packaging>
+
+    <name>instai-open-zuul-server</name>
+    <description>zuul server ， 服务网关 ！</description>
+
+    <parent>
+        <groupId>com.instai.open</groupId>
+        <artifactId>instai-open-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../instai-open-parent</relativePath>
+    </parent>
+
+    <dependencies>
+        <!--导入服务网关zuul-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+        </dependency>
+        <!--导入重试机制的坐标-->
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.instai.open</groupId>
+            <artifactId>instai-open-common-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>instai-open-zuul-server</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

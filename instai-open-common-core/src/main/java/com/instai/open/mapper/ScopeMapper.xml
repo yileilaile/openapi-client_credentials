@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.instai.open.mapper.ScopeMapper">
+  <resultMap id="BaseResultMap" type="com.instai.open.model.Scope">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="scope_name" jdbcType="VARCHAR" property="scopeName" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="create_by" jdbcType="INTEGER" property="createBy" />
+    <result column="modify_by" jdbcType="INTEGER" property="modifyBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.instai.open.model.Scope">
+    insert into t_base_auth20_scope (id, scope_name, description, 
+      create_by, modify_by, create_date, 
+      modify_date)
+    values (#{id,jdbcType=INTEGER}, #{scopeName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=INTEGER}, #{modifyBy,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{modifyDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.instai.open.model.Scope">
+    insert into t_base_auth20_scope
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="scopeName != null">
+        scope_name,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="modifyBy != null">
+        modify_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="modifyDate != null">
+        modify_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="scopeName != null">
+        #{scopeName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="modifyBy != null">
+        #{modifyBy,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.instai.open.model.Scope">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="scope_name" jdbcType="VARCHAR" property="scopeName" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="create_by" jdbcType="INTEGER" property="createBy" />
+    <result column="modify_by" jdbcType="INTEGER" property="modifyBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.instai.open.model.Scope">
+    insert into t_base_auth20_scope (id, scope_name, description, 
+      create_by, modify_by, create_date, 
+      modify_date)
+    values (#{id,jdbcType=INTEGER}, #{scopeName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=INTEGER}, #{modifyBy,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{modifyDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.instai.open.model.Scope">
+    insert into t_base_auth20_scope
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="scopeName != null">
+        scope_name,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="modifyBy != null">
+        modify_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="modifyDate != null">
+        modify_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="scopeName != null">
+        #{scopeName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="modifyBy != null">
+        #{modifyBy,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.instai.open.mapper.OpenIdMapper">
+  <resultMap id="BaseResultMap" type="com.instai.open.model.OpenId">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="client_id" jdbcType="VARCHAR" property="clientId" />
+    <result column="client_user_id" jdbcType="VARCHAR" property="clientUserId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="create_by" jdbcType="INTEGER" property="createBy" />
+    <result column="modify_by" jdbcType="INTEGER" property="modifyBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.instai.open.model.OpenId">
+    insert into t_base_auth20_openid (id, client_id, client_user_id, 
+      user_id, open_id, create_by, 
+      modify_by, create_date, modify_date
+      )
+    values (#{id,jdbcType=INTEGER}, #{clientId,jdbcType=VARCHAR}, #{clientUserId,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{createBy,jdbcType=INTEGER}, 
+      #{modifyBy,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, #{modifyDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.instai.open.model.OpenId">
+    insert into t_base_auth20_openid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="clientId != null">
+        client_id,
+      </if>
+      <if test="clientUserId != null">
+        client_user_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="modifyBy != null">
+        modify_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="modifyDate != null">
+        modify_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="clientId != null">
+        #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="clientUserId != null">
+        #{clientUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="modifyBy != null">
+        #{modifyBy,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.instai.open.model.OpenId">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="client_id" jdbcType="VARCHAR" property="clientId" />
+    <result column="auth_client_user_id" jdbcType="INTEGER" property="authClientUserId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.instai.open.model.OpenId">
+    insert into t_base_auth20_openid (id, client_id, auth_client_user_id, 
+      user_id)
+    values (#{id,jdbcType=INTEGER}, #{clientId,jdbcType=VARCHAR}, #{authClientUserId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.instai.open.model.OpenId">
+    insert into t_base_auth20_openid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="clientId != null">
+        client_id,
+      </if>
+      <if test="authClientUserId != null">
+        auth_client_user_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="clientId != null">
+        #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="authClientUserId != null">
+        #{authClientUserId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.instai.open.model.OpenId">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="client_id" jdbcType="VARCHAR" property="clientId" />
+    <result column="client_user_id" jdbcType="VARCHAR" property="clientUserId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="create_by" jdbcType="INTEGER" property="createBy" />
+    <result column="modify_by" jdbcType="INTEGER" property="modifyBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.instai.open.model.OpenId">
+    insert into t_base_auth20_openid (id, client_id, client_user_id, 
+      user_id, open_id, create_by, 
+      modify_by, create_date, modify_date
+      )
+    values (#{id,jdbcType=INTEGER}, #{clientId,jdbcType=VARCHAR}, #{clientUserId,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{createBy,jdbcType=INTEGER}, 
+      #{modifyBy,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, #{modifyDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.instai.open.model.OpenId">
+    insert into t_base_auth20_openid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="clientId != null">
+        client_id,
+      </if>
+      <if test="clientUserId != null">
+        client_user_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="modifyBy != null">
+        modify_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="modifyDate != null">
+        modify_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="clientId != null">
+        #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="clientUserId != null">
+        #{clientUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="modifyBy != null">
+        #{modifyBy,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

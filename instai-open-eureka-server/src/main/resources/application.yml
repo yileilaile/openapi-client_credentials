@@ -1,0 +1,32 @@
+server:
+  port: 7030
+#开启底层日志
+debug:
+  false
+spring:
+  application:
+    name: instai-open-eureka-server
+  profiles:
+    active: dev
+
+  redis:
+    database: 0
+    host: ${redis.host}
+    password: ${redis.password}
+    port: ${redis.port}
+security:
+  basic:
+    enabled: true
+  user:
+    name: instai
+    password: instaiadmin
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: ${eureka.url}
+#远程调用超时配置
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
